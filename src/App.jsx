@@ -3,13 +3,14 @@ import { Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 
 import "./App.css";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/checkout" element={<div>checkout</div>} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </>
   );
