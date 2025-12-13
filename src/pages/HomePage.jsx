@@ -14,7 +14,6 @@ function HomePage({ cartItems, setCartItems }) {
     });
 
     //getting cart items
-   
   }, []);
   return (
     <>

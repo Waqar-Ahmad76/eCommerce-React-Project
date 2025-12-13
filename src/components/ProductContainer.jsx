@@ -1,4 +1,5 @@
 import React from "react";
+import { formatPrice } from "../utils/money.js";
 import "./ProductContainer.css";
 
 function ProductContainer({ product }) {
@@ -20,9 +21,7 @@ function ProductContainer({ product }) {
         </div>
       </div>
 
-      <div className="product-price">
-        {(product.priceCents / 100).toFixed(2)}$
-      </div>
+      <div className="product-price">{formatPrice(product.priceCents)}</div>
 
       <div className="product-quantity-container">
         <select>
