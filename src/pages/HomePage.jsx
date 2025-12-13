@@ -4,9 +4,9 @@ import Header from "../components/Header";
 import ProductContainer from "../components/ProductContainer.jsx";
 import "./HomePage.css";
 
-function HomePage() {
+function HomePage({ cartItems, setCartItems }) {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+
   useEffect(() => {
     axios.get("/api/products").then((productRes) => {
       setProducts(productRes.data);
@@ -14,9 +14,7 @@ function HomePage() {
     });
 
     //getting cart items
-    axios.get("/api/cart-items").then((cartRes) => {
-      setCartItems(cartRes.data);
-    });
+   
   }, []);
   return (
     <>

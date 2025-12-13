@@ -1,6 +1,6 @@
 import "./CheckoutPage.css";
 import "./checkout-header.css";
-export default function CheckoutPage() {
+export default function CheckoutPage({ cartItems, setCartItems }) {
   return (
     <>
       <title>Checkout</title>
