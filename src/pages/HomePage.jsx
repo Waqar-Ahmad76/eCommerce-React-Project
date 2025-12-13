@@ -8,13 +8,13 @@ function HomePage() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3000/api/products").then((productRes) => {
+    axios.get("/api/products").then((productRes) => {
       setProducts(productRes.data);
       // console.log(products);
     });
 
     //getting cart items
-    axios.get("http://localhost:3000/api/cart-items").then((cartRes) => {
+    axios.get("/api/cart-items").then((cartRes) => {
       setCartItems(cartRes.data);
     });
   }, []);
