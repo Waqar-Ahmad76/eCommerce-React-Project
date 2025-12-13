@@ -1,15 +1,14 @@
+import axios from "axios";
 import Header from "../components/Header";
 import ProductContainer from "../components/ProductContainer.jsx";
 import { products } from "../../starting-code/data/products.js";
 import "./HomePage.css";
 
 function HomePage() {
-  fetch("http://localhost:3000/api/products")
-    .then((res) => res.json())
-    .then((data) => {
-      const products = data;
-      // console.log(products);
-    });
+  axios.get("http://localhost:3000/api/products").then((res) => {
+    const products = res.data;
+    console.log(products);
+  });
   return (
     <>
       <title>e-Commerce Project</title>
