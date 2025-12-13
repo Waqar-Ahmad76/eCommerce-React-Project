@@ -4,6 +4,12 @@ import { products } from "../../starting-code/data/products.js";
 import "./HomePage.css";
 
 function HomePage() {
+  fetch("http://localhost:3000/api/products")
+    .then((res) => res.json())
+    .then((data) => {
+      const products = data;
+      // console.log(products);
+    });
   return (
     <>
       <title>e-Commerce Project</title>
