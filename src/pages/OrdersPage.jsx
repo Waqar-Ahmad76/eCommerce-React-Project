@@ -9,9 +9,12 @@ export default function OrdersPage({ cartItems }) {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get("api/orders?expand=products").then((ordersRes) => {
+    const getOrders = async () => {
+      const ordersRes = await axios.get("api/orders?expand=products");
       setOrders(ordersRes.data);
-    });
+    };
+
+    getOrders();
   }, []);
   return (
     <>
