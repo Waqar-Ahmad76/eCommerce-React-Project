@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import ProductContainer from "../components/ProductContainer.jsx";
+import Header from "../../components/Header.jsx";
+import ProductContainer from "../../components/ProductContainer.jsx";
 import "./HomePage.css";
 
 function HomePage({ cartItems, setCartItems }) {

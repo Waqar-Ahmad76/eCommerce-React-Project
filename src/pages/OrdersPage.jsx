@@ -48,7 +48,7 @@ export default function OrdersPage({ cartItems }) {
                 <div className="order-details-grid">
                   {order.products.map((orderProduct) => {
                     return (
-                      <Fragment key={orderProduct.id}>
+                      <Fragment key={orderProduct.productId}>
                         <div className="product-image-container">
                           <img src={orderProduct.product.image} />
                         </div>
@@ -73,9 +73,9 @@ export default function OrdersPage({ cartItems }) {
                             </span>
                           </button>
                         </div>
-                        <div class="product-actions">
+                        <div className="product-actions">
                           <a href="/tracking">
-                            <button class="track-package-button button-secondary">
+                            <button className="track-package-button button-secondary">
                               Track package
                             </button>
                           </a>
