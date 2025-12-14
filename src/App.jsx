@@ -32,7 +32,7 @@ function App() {
             <CheckoutPage cartItems={cartItems} setCartItems={setCartItems} />
           }
         />
-        <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/orders" element={<OrdersPage cartItems={cartItems} />} />
         <Route path="/tracking" element={<TrackingPage />} />
       </Routes>
     </>
