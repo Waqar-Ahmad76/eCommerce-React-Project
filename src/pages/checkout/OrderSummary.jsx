@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import axios from "axios";
 import React from "react";
 import { formatPrice } from "../../utils/money";
 import DeliveryOptions from "./DeliveryOptions";
@@ -13,6 +14,11 @@ function OrderSummary({ deliveryOptions, cartItems, getCartItems }) {
               return deliveryOption.id === cartItem.deliveryOptionId;
             }
           );
+
+          async function deleteCartItem() {
+            await axios.delete(`/api/cart-items/${cartItem.productId}`);
+            await getCartItems();
+          }
           // console.log(selectedDeliveryOption);
           return (
             <div key={cartItem.productId} className="cart-item-container">
@@ -27,7 +33,7 @@ function OrderSummary({ deliveryOptions, cartItems, getCartItems }) {
                 <img className="product-image" src={cartItem.product.image} />
 
                 <div className="cart-item-details">
-                  <div className="product-name">{cartItem.product.image}</div>
+                  <div className="product-name">{cartItem.product.name}</div>
                   <div className="product-price">
                     {formatPrice(cartItem.product.priceCents)}
                   </div>
@@ -41,7 +47,10 @@ function OrderSummary({ deliveryOptions, cartItems, getCartItems }) {
                     <span className="update-quantity-link link-primary">
                       Update
                     </span>
-                    <span className="delete-quantity-link link-primary">
+                    <span
+                      className="delete-quantity-link link-primary"
+                      onClick={deleteCartItem}
+                    >
                       Delete
                     </span>
                   </div>
