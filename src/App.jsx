@@ -10,12 +10,12 @@ import TrackingPage from "./pages/TrackingPage";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
-
+  const getCartItems = async () => {
+    const cartRes = await axios.get("/api/cart-items?expand=product");
+    setCartItems(cartRes.data);
+    // console.log("cart updated");
+  };
   useEffect(() => {
-    const getCartItems = async () => {
-      const cartRes = await axios.get("/api/cart-items?expand=product");
-      setCartItems(cartRes.data);
-    };
     getCartItems();
   }, []);
 
@@ -25,7 +25,12 @@ function App() {
         <Route
           path="/"
           element={
-            <HomePage cartItems={cartItems} setCartItems={setCartItems} />
+            <HomePage
+              key={new Date()}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              getCartItems={getCartItems}
+            />
           }
         />
         <Route
