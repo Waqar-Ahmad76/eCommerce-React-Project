@@ -45,7 +45,12 @@ export default function CheckoutPage({ cartItems, getCartItems }) {
             deliveryOptions={deliveryOptions}
             getCartItems={getCartItems}
           />
-          {paymentSummary && <PaymentSummary paymentSummary={paymentSummary} />}
+          {paymentSummary && (
+            <PaymentSummary
+              paymentSummary={paymentSummary}
+              getCartItems={getCartItems}
+            />
+          )}
         </div>
       </div>
     </>
